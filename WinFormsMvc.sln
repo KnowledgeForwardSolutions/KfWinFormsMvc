@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KfWinFormsMvc.Tests.Unit", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example01TextBoxesLabelsAndButtons", "examples\Example01TextBoxesLabelsAndButtons\Example01TextBoxesLabelsAndButtons.csproj", "{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example02CheckBoxesAndRadioButtons", "examples\Example02CheckBoxesAndRadioButtons\Example02CheckBoxesAndRadioButtons.csproj", "{DDBC2575-CEC2-4215-84A0-45846B72CD0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +47,7 @@ Global
 		{1515622C-C7D6-4C02-B6D9-164D3CB56CA3} = {02706B4A-31DB-45AF-AF29-2CCFA064C3C5}
 		{BD6BBB1C-6838-4B5B-9CEE-EDED515FF438} = {EEBCA232-8845-4FBD-A7CB-3396435D4A3A}
 		{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1} = {55039B86-8D80-4481-8340-86C4B13A75F5}
+		{DDBC2575-CEC2-4215-84A0-45846B72CD0C} = {55039B86-8D80-4481-8340-86C4B13A75F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56646747-D252-4FA5-8C4B-CC6B951D6D8D}

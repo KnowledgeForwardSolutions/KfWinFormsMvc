@@ -22,7 +22,6 @@ public class PersonModel : ModelBase
       _firstName = String.Empty;
       _lastName = String.Empty;
 
-      // PropertyName = String.Empty notifies that all properties have changed
-      NotifyPropertyChanged(String.Empty);
+      NotifyAllPropertiesChanged();
    }
 }

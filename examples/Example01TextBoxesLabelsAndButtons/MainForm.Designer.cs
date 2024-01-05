@@ -36,11 +36,11 @@ partial class MainForm
       _fullNameLabel = new Label();
       _clearAllButton = new Button();
       _detailsPanel = new Panel();
-      _detailsLabel = new Label();
-      _details1Label = new Label();
+      _detailsLabel4 = new Label();
+      _detailsLabel3 = new Label();
       _details2Label = new Label();
-      label1 = new Label();
-      label2 = new Label();
+      _details1Label = new Label();
+      _detailsLabel = new Label();
       _detailsPanel.SuspendLayout();
       SuspendLayout();
       // 
@@ -106,8 +106,9 @@ partial class MainForm
       // 
       // _detailsPanel
       // 
-      _detailsPanel.Controls.Add(label2);
-      _detailsPanel.Controls.Add(label1);
+      _detailsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      _detailsPanel.Controls.Add(_detailsLabel4);
+      _detailsPanel.Controls.Add(_detailsLabel3);
       _detailsPanel.Controls.Add(_details2Label);
       _detailsPanel.Controls.Add(_details1Label);
       _detailsPanel.Controls.Add(_detailsLabel);
@@ -116,22 +117,21 @@ partial class MainForm
       _detailsPanel.Size = new Size(272, 337);
       _detailsPanel.TabIndex = 7;
       // 
-      // _detailsLabel
+      // _detailsLabel4
       // 
-      _detailsLabel.AutoSize = true;
-      _detailsLabel.Location = new Point(3, 8);
-      _detailsLabel.Name = "_detailsLabel";
-      _detailsLabel.Size = new Size(60, 21);
-      _detailsLabel.TabIndex = 0;
-      _detailsLabel.Text = "Details:";
+      _detailsLabel4.Location = new Point(3, 250);
+      _detailsLabel4.Name = "_detailsLabel4";
+      _detailsLabel4.Size = new Size(266, 45);
+      _detailsLabel4.TabIndex = 4;
+      _detailsLabel4.Text = "ClickController binding Button to model ClearAll method\r\n";
       // 
-      // _details1Label
+      // _detailsLabel3
       // 
-      _details1Label.Location = new Point(3, 43);
-      _details1Label.Name = "_details1Label";
-      _details1Label.Size = new Size(266, 45);
-      _details1Label.TabIndex = 1;
-      _details1Label.Text = "TextViewController binding TextBox to model FirstName property";
+      _detailsLabel3.Location = new Point(3, 181);
+      _detailsLabel3.Name = "_detailsLabel3";
+      _detailsLabel3.Size = new Size(266, 45);
+      _detailsLabel3.TabIndex = 3;
+      _detailsLabel3.Text = "TextView binding Label to model FirstName and LastName properties";
       // 
       // _details2Label
       // 
@@ -141,21 +141,22 @@ partial class MainForm
       _details2Label.TabIndex = 2;
       _details2Label.Text = "TextViewController binding TextBox to model LastName property";
       // 
-      // label1
+      // _details1Label
       // 
-      label1.Location = new Point(3, 181);
-      label1.Name = "label1";
-      label1.Size = new Size(266, 45);
-      label1.TabIndex = 3;
-      label1.Text = "TextView binding Label to model FirstName and LastName properties";
+      _details1Label.Location = new Point(3, 43);
+      _details1Label.Name = "_details1Label";
+      _details1Label.Size = new Size(266, 45);
+      _details1Label.TabIndex = 1;
+      _details1Label.Text = "TextViewController binding TextBox to model FirstName property";
       // 
-      // label2
+      // _detailsLabel
       // 
-      label2.Location = new Point(3, 250);
-      label2.Name = "label2";
-      label2.Size = new Size(266, 45);
-      label2.TabIndex = 4;
-      label2.Text = "ClickController binding Button to model ClearAll method\r\n";
+      _detailsLabel.AutoSize = true;
+      _detailsLabel.Location = new Point(3, 8);
+      _detailsLabel.Name = "_detailsLabel";
+      _detailsLabel.Size = new Size(60, 21);
+      _detailsLabel.TabIndex = 0;
+      _detailsLabel.Text = "Details:";
       // 
       // MainForm
       // 
@@ -172,7 +173,7 @@ partial class MainForm
       Controls.Add(_firstNameLabel);
       Controls.Add(_firstNameTextBox);
       Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-      Margin = new Padding(4, 4, 4, 4);
+      Margin = new Padding(4);
       Name = "MainForm";
       Text = "KfWinFormsMvc Example 01 - Text and Buttons";
       _detailsPanel.ResumeLayout(false);
@@ -194,6 +195,6 @@ partial class MainForm
    private Label _details2Label;
    private Label _details1Label;
    private Label _detailsLabel;
-   private Label label2;
-   private Label label1;
+   private Label _detailsLabel4;
+   private Label _detailsLabel3;
 }

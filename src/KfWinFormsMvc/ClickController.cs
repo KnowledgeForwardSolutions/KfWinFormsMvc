@@ -52,7 +52,7 @@ public class ClickController<M> : ViewControllerBase<M, Control>
       }
       else
       {
-         throw new InvalidOperationException("Bound method return type must be either void or Task");
+         throw new InvalidOperationException(Messages.InvalidBoundMethodReturnType);
       }
     }
 

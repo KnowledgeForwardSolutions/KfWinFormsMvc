@@ -8,6 +8,12 @@ public abstract class ModelBase : INotifyPropertyChanged
 {
    public event PropertyChangedEventHandler? PropertyChanged = default!;
 
+   /// <summary>
+   ///   Broadcast a notification that all properties have been changed.
+   /// </summary>
+   public void NotifyAllPropertiesChanged()
+      => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(String.Empty));
+
    protected Boolean SetProperty<T>(
       ref T storage,
       T value,

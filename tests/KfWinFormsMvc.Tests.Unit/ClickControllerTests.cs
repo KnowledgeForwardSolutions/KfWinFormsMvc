@@ -13,7 +13,7 @@ public class ClickControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new Button();
-      var methodName = nameof(PersonModel.ClearAll);
+      var methodName = nameof(model.ClearAll);
 
       // Act.
       var sut = new ClickController<PersonModel>(model, control, methodName);
@@ -28,7 +28,7 @@ public class ClickControllerTests
       // Arrange.
       PersonModel model = null!;
       var control = new Button();
-      var methodName = nameof(PersonModel.ClearAll);
+      var methodName = nameof(model.ClearAll);
 
       var act = () => _ = new ClickController<PersonModel>(model, control, methodName);
       var expectedMessage = Messages.NullModelMessage;
@@ -45,7 +45,7 @@ public class ClickControllerTests
       // Arrange.
       var model = new PersonModel();
       Button control = null!;
-      var methodName = nameof(PersonModel.ClearAll);
+      var methodName = nameof(model.ClearAll);
 
       var act = () => _ = new ClickController<PersonModel>(model, control, methodName);
       var expectedMessage = Messages.NullControlMessage;
@@ -135,7 +135,7 @@ public class ClickControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new Button();
-      var methodName = nameof(PersonModel.ClearAll);
+      var methodName = nameof(model.ClearAll);
       var sut = new ClickController<PersonModel>(model, control, methodName);
       model.FirstName = "Ringo";
 
@@ -152,7 +152,7 @@ public class ClickControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new Button();
-      var methodName = nameof(PersonModel.ClearAllAsync);
+      var methodName = nameof(model.ClearAllAsync);
       var sut = new ClickController<PersonModel>(model, control, methodName);
       model.FirstName = "Ringo";
 

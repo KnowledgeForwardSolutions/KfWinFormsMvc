@@ -22,7 +22,7 @@ public class PersonModel : ModelBase
       _firstName = String.Empty;
       _lastName = String.Empty;
 
-      NotifyPropertyChanged(String.Empty);
+      NotifyAllPropertiesChanged();
    }
 
    public async void ClearAllAsync()
@@ -32,7 +32,7 @@ public class PersonModel : ModelBase
       _firstName = String.Empty;
       _lastName = String.Empty;
 
-      NotifyPropertyChanged(String.Empty);
+      NotifyAllPropertiesChanged();
    }
 
    public String GetFullName() => $"{LastName}, {FirstName}";

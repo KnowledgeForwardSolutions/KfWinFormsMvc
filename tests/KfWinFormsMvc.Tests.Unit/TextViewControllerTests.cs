@@ -13,7 +13,7 @@ public class TextViewControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new TextBox();
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
 
       // Act.
       var sut = new TextViewController<PersonModel>(model, control, propertyName);
@@ -28,7 +28,7 @@ public class TextViewControllerTests
       // Arrange.
       PersonModel model = null!;
       var control = new TextBox();
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
 
       var act = () => _ = new TextViewController<PersonModel>(model, control, propertyName);
       var expectedMessage = Messages.NullModelMessage;
@@ -45,7 +45,7 @@ public class TextViewControllerTests
       // Arrange.
       var model = new PersonModel();
       TextBox control = null!;
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
 
       var act = () => _ = new TextViewController<PersonModel>(model, control, propertyName);
       var expectedMessage = Messages.NullControlMessage;
@@ -119,7 +119,7 @@ public class TextViewControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new TextBox();
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
       var sut = new TextViewController<PersonModel>(model, control, propertyName);
 
       // Act.
@@ -135,7 +135,7 @@ public class TextViewControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new TextBox();
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
       var sut = new TextViewController<PersonModel>(model, control, propertyName);
 
       // Act.
@@ -151,7 +151,7 @@ public class TextViewControllerTests
       // Arrange.
       var model = new PersonModel();
       var control = new TextBox();
-      var propertyName = nameof(PersonModel.FirstName);
+      var propertyName = nameof(model.FirstName);
       var sut = new TextViewController<PersonModel>(model, control, propertyName);
       control.Text = "George";
 

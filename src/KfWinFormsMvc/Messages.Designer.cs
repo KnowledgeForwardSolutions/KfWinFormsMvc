@@ -122,5 +122,14 @@ namespace KfWinFormsMvc {
                 return ResourceManager.GetString("PropertyNotFoundMessage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RadioButtonViewController selected value parameter may not be default.
+        /// </summary>
+        internal static string SelectedValueOutOfRangeMessage {
+            get {
+                return ResourceManager.GetString("SelectedValueOutOfRangeMessage", resourceCulture);
+            }
+        }
     }
 }
