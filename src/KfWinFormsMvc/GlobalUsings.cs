@@ -1,4 +1,6 @@
-﻿global using System.ComponentModel;
+﻿global using System.Collections.ObjectModel;
+global using System.Collections.Specialized;
+global using System.ComponentModel;
 global using System.Reflection;
 global using System.Runtime.CompilerServices;
 

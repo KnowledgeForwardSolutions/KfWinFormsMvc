@@ -3,6 +3,24 @@
 public static class ExtensionMethods
 {
    /// <summary>
+   ///   Given a <paramref name="type"/>, return the generic collection item 
+   ///   type. If <paramref name="type"/> is not a generic type or does not
+   ///   implement <see cref="IEnumerable{}"/> then return null.
+   /// </summary>
+   /// <param name="type">
+   ///   The <see cref="Type"/> to check.
+   /// </param>
+   /// <returns></returns>
+   public static Type? GetCollectionElementType(this Type type)
+   {
+      var enumerableInterface = type.GetInterfaces()
+         .FirstOrDefault(x => x.IsGenericType && x.GetGenericTypeDefinition() == typeof(IEnumerable<>));
+      var enumerableTypeArguments = enumerableInterface?.GetGenericArguments() ?? Enumerable.Empty<Type>();
+      
+      return enumerableTypeArguments.FirstOrDefault();
+   }
+
+   /// <summary>
    ///   Get the <see cref="MethodInfo"/> for a public instance method.
    /// </summary>
    /// <param name="obj"></param>

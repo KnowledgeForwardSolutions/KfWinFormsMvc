@@ -23,7 +23,7 @@
     </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="KfWinFormsMvc.Tests.Unit"/>
+		<InternalsVisibleTo Include="KfWinFormsMvc.Tests.Unit" />
 	</ItemGroup>
 
 </Project>

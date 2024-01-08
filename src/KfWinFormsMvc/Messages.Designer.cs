@@ -61,6 +61,15 @@ namespace KfWinFormsMvc {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Items propery name may not be String.Empty or all whitespace characters.
+        /// </summary>
+        internal static string EmptyItemsPropertyName {
+            get {
+                return ResourceManager.GetString("EmptyItemsPropertyName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MethodName may not be null, String.Empty or all whitespace characters.
         /// </summary>
         internal static string EmptyMethodNameMessage {
@@ -84,6 +93,24 @@ namespace KfWinFormsMvc {
         internal static string InvalidBoundMethodReturnType {
             get {
                 return ResourceManager.GetString("InvalidBoundMethodReturnType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Items property must implement IEnumerable&lt;T&gt;, where T is the item type.
+        /// </summary>
+        internal static string InvalidItemsPropertyType {
+            get {
+                return ResourceManager.GetString("InvalidItemsPropertyType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model items property is not defined.
+        /// </summary>
+        internal static string ItemsPropertyIsNotDefined {
+            get {
+                return ResourceManager.GetString("ItemsPropertyIsNotDefined", resourceCulture);
             }
         }
         

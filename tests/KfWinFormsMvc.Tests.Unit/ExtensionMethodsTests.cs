@@ -4,6 +4,27 @@ namespace KfWinFormsMvc.Tests.Unit;
 
 public class ExtensionMethodsTests
 {
+   #region GetCollectionElementType Method Tests
+   // ==========================================================================
+   // ==========================================================================
+
+   [Fact]
+   public void ExtensionMethods_GetCollectionElementType_ShouldReturnTypeT_WhenInputTypeIsIEnumerableOfT()
+   {
+      // Arrange.
+      var type = typeof(List<Int32>);
+      var expectedElementType = typeof(Int32);
+
+      // Act/assert.
+      type.GetCollectionElementType().Should().Be(expectedElementType);
+   }
+
+   [Fact]
+   public void ExtensionMethods_GetCollectionElementType_ShouldReturnNull_WhenInputTypeIsNotIEnumerable()
+      => typeof(Double).GetCollectionElementType().Should().BeNull();
+
+   #endregion
+
    #region GetPropertyInfo Method Tests
    // ==========================================================================
    // ==========================================================================

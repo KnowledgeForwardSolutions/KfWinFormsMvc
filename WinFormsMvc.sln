@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example01TextBoxesLabelsAnd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example02CheckBoxesAndRadioButtons", "examples\Example02CheckBoxesAndRadioButtons\Example02CheckBoxesAndRadioButtons.csproj", "{DDBC2575-CEC2-4215-84A0-45846B72CD0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example03Lists", "examples\Example03Lists\Example03Lists.csproj", "{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDBC2575-CEC2-4215-84A0-45846B72CD0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{BD6BBB1C-6838-4B5B-9CEE-EDED515FF438} = {EEBCA232-8845-4FBD-A7CB-3396435D4A3A}
 		{D7785A1D-E7E4-4EC0-8770-C80CACB6ECD1} = {55039B86-8D80-4481-8340-86C4B13A75F5}
 		{DDBC2575-CEC2-4215-84A0-45846B72CD0C} = {55039B86-8D80-4481-8340-86C4B13A75F5}
+		{4A88FBBB-09C9-4C26-9BCF-D64D9D5D1C5F} = {55039B86-8D80-4481-8340-86C4B13A75F5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56646747-D252-4FA5-8C4B-CC6B951D6D8D}

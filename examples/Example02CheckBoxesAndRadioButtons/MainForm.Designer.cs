@@ -333,7 +333,7 @@ partial class MainForm
       Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
       Margin = new Padding(4);
       Name = "MainForm";
-      Text = "Example 02 - CheckBoxes and RadioButtons";
+      Text = "KfWinFormsMvc Example 02 - CheckBoxes and RadioButtons";
       _group1.ResumeLayout(false);
       _group1.PerformLayout();
       _detailsPanel.ResumeLayout(false);
