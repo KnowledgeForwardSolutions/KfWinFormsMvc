@@ -6,11 +6,11 @@ public class FullNameView : TextView<PersonModel>
       : base(model, label, nameof(PersonModel.FirstName))
    {
       RegisterPropertyChangedAction(
-         nameof(_model.LastName), 
-         ModelBoundPropertyChanged);
+         nameof(_model.LastName),
+         ApplyModelBoundPropertyChange);
    }
 
-   public override void ModelBoundPropertyChanged()
+   public override void ApplyModelBoundPropertyChange()
    {
       var hasFirstName = !String.IsNullOrEmpty(_model.FirstName);
       var hasLastName = !String.IsNullOrEmpty(_model.LastName);

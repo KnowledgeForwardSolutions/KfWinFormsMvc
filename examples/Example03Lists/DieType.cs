@@ -2,7 +2,6 @@
 
 public enum DieType
 {
-   None = 0,
    D4,
    D6,
    D8,

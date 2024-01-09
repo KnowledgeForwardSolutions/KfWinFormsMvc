@@ -6,11 +6,9 @@ namespace KfWinFormsMvc;
 ///   Implements a two way binding between a model property and the Checked
 ///   property of a <see cref="CheckBox"/>.
 /// </summary>
-public class CheckBoxViewController<M> : ViewControllerBase<M, CheckBox>
+public class CheckBoxViewController<M> : PropertyBinding<M, CheckBox>
    where M : INotifyPropertyChanged
 {
-   private readonly PropertyInfo _boundPropertyInfo;
-
    /// <summary>
    ///   Initialize a new <see cref="CheckBoxViewController{M}"/> object.
    /// </summary>
@@ -37,19 +35,13 @@ public class CheckBoxViewController<M> : ViewControllerBase<M, CheckBox>
    public CheckBoxViewController(
       M model,
       CheckBox control,
-      String boundPropertyName) : base(model, control)
-   {
-      boundPropertyName.RequiresNotEmpty(Messages.EmptyPropertyNameMessage);
-
-      _boundPropertyInfo = model.GetPropertyInfo(boundPropertyName);
-      _control.CheckedChanged += Control_CheckedChanged;
-      RegisterPropertyChangedAction(boundPropertyName, ModelBoundPropertyChanged);
-   }
+      String boundPropertyName) : base(model, control, boundPropertyName)
+      => _control.CheckedChanged += Control_CheckedChanged;
 
    /// <summary>
    ///   Update the control when the model property changes.
    /// </summary>
-   public virtual void ModelBoundPropertyChanged()
+   public override void ApplyModelBoundPropertyChange()
    {
       var value = (Boolean?)_boundPropertyInfo.GetValue(_model);
       _control.Checked = value ?? false;

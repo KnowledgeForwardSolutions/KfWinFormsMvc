@@ -8,7 +8,7 @@ namespace KfWinFormsMvc;
 ///   synchronously. If the return type of the method is <see cref="Task"/> then 
 ///   the method will be called asynchronously.
 /// </summary>
-public class ClickController<M> : ViewControllerBase<M, Control>
+public class ClickController<M> : BindingBase<M, Control>
    where M : INotifyPropertyChanged
 {
    private readonly MethodInfo _boundMethodInfo;

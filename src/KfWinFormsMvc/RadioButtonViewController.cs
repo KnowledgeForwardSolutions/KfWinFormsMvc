@@ -8,11 +8,10 @@ namespace KfWinFormsMvc;
 ///   Implements a two way binding between a model property and a 
 ///   <see cref="RadioButton"/>.
 /// </summary>
-public class RadioButtonViewController<M,V> : ViewControllerBase<M, RadioButton>
+public class RadioButtonViewController<M,V> : PropertyBinding<M, RadioButton>
    where M : INotifyPropertyChanged
    where V : Enum
 {
-   private readonly PropertyInfo _boundPropertyInfo;
    private readonly V _selectedValue;
 
    /// <summary>
@@ -47,24 +46,21 @@ public class RadioButtonViewController<M,V> : ViewControllerBase<M, RadioButton>
       M model,
       RadioButton control,
       String boundPropertyName,
-      V selectedValue) : base(model, control)
+      V selectedValue) : base(model, control, boundPropertyName)
    {
-      boundPropertyName.RequiresNotEmpty(Messages.EmptyPropertyNameMessage);
       if (IComparer.Equals(selectedValue, default(V)))
       {
          throw new ArgumentOutOfRangeException(nameof(selectedValue), Messages.SelectedValueOutOfRangeMessage);
       }
 
-      _boundPropertyInfo = model.GetPropertyInfo(boundPropertyName);
       _selectedValue = selectedValue;
       _control.CheckedChanged += Control_CheckedChanged;
-      RegisterPropertyChangedAction(boundPropertyName, ModelBoundPropertyChanged);
    }
 
    /// <summary>
    ///   Update the control when the model property changes.
    /// </summary>
-   public virtual void ModelBoundPropertyChanged()
+   public override void ApplyModelBoundPropertyChange()
    {
       var value = (V?)_boundPropertyInfo.GetValue(_model);
       _control.Checked = EqualityComparer<V>.Default.Equals(_selectedValue, value);

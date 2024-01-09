@@ -12,7 +12,7 @@ namespace KfWinFormsMvc;
 /// <typeparam name="V">
 ///   The type of the items bound to the control's item collection.
 /// </typeparam>
-public class DropDownListViewController<M, V> : ViewControllerBase<M, ComboBox>
+public class DropDownListViewController<M, V> : BindingBase<M, ComboBox>
    where M : INotifyPropertyChanged
 {
    private readonly PropertyInfo _boundPropertyInfo;

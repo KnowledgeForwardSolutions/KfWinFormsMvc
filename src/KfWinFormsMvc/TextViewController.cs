@@ -6,11 +6,9 @@ namespace KfWinFormsMvc;
 ///   Implements a two way binding between a model property and the Text
 ///   property of a <see cref="Control"/>.
 /// </summary>
-public class TextViewController<M> : ViewControllerBase<M, Control>
+public class TextViewController<M> : TextView<M>
    where M : INotifyPropertyChanged
 {
-   private readonly PropertyInfo _boundPropertyInfo;
-
    /// <summary>
    ///   Initialize a new <see cref="TextViewController{M}"/> object.
    /// </summary>
@@ -34,27 +32,9 @@ public class TextViewController<M> : ViewControllerBase<M, Control>
    ///   <paramref name="boundPropertyName"/> is <see cref="String.Empty"/> or 
    ///   all whitespace characters.
    /// </exception>
-   public TextViewController(
-      M model,
-      Control control,
-      String boundPropertyName
-      ) : base(model, control)
-   {
-      boundPropertyName.RequiresNotEmpty(Messages.EmptyPropertyNameMessage);
-
-      _boundPropertyInfo = model.GetPropertyInfo(boundPropertyName);
-      _control.TextChanged += Control_TextChanged;
-      RegisterPropertyChangedAction(boundPropertyName, ModelBoundPropertyChanged);
-   }
-
-   /// <summary>
-   ///   Update the control when the model property changes.
-   /// </summary>
-   public virtual void ModelBoundPropertyChanged()
-   {
-      var value = _boundPropertyInfo.GetValue(_model);
-      _control.Text = value?.ToString();
-   }
+   public TextViewController(M model, Control control, String boundPropertyName)
+      : base(model, control, boundPropertyName)
+      => _control.TextChanged += Control_TextChanged;
 
    /// <inheritdoc/>
    public override void UnsubscribeFromEvents()

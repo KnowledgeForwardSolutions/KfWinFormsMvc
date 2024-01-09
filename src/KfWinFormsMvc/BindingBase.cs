@@ -3,9 +3,10 @@
 namespace KfWinFormsMvc;
 
 /// <summary>
-///   Abstract base class for a MVC view, controller or view/controller object.
+///   Abstract base class for an object that binds a model property to a 
+///   <see cref="Control"/> property.
 /// </summary>
-public abstract class ViewControllerBase<M, C> : IDisposable
+public abstract class BindingBase<M, C> : IDisposable
    where M : INotifyPropertyChanged
    where C : Control
 {
@@ -15,7 +16,7 @@ public abstract class ViewControllerBase<M, C> : IDisposable
    protected M _model;
 
    /// <summary>
-   ///   Initialize a new <see cref="ViewControllerBase{M, C}"/> object.
+   ///   Initialize a new <see cref="BindingBase{M, C}"/> object.
    /// </summary>
    /// <param name="model">
    ///   The model containing the property to bind.
@@ -28,7 +29,7 @@ public abstract class ViewControllerBase<M, C> : IDisposable
    ///   - or -
    ///   <paramref name="control"/> is <see langword="null"/>.
    /// </exception>
-   public ViewControllerBase(M model, C control)
+   public BindingBase(M model, C control)
    {
       _model = model ?? throw new ArgumentNullException(nameof(model), Messages.NullModelMessage);
       _control = control ?? throw new ArgumentNullException(nameof(control), Messages.NullControlMessage);
