@@ -57,9 +57,7 @@ public class RadioButtonViewController<M,V> : PropertyBinding<M, RadioButton>
       _control.CheckedChanged += Control_CheckedChanged;
    }
 
-   /// <summary>
-   ///   Update the control when the model property changes.
-   /// </summary>
+   /// <inheritdoc/>
    public override void ApplyModelBoundPropertyChange()
    {
       var value = (V?)_boundPropertyInfo.GetValue(_model);

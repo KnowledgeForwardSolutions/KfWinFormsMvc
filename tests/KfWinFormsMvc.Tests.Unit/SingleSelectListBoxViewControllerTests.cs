@@ -1,26 +1,26 @@
 ﻿namespace KfWinFormsMvc.Tests.Unit;
 
 #pragma warning disable IDE0059 // Unnecessary assignment of a value
-public class DropDownListViewControllerTests
+public class SingleSelectListBoxViewControllerTests
 {
    #region Constructor Tests
    // ==========================================================================
    // ==========================================================================
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldCreateObject_WhenAllParametersAreValid()
+   public void SingleSelectListBoxViewController_Constructor_ShouldCreateObject_WhenAllParametersAreValid()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
 
       // Act.
-      var sut = new DropDownListViewController<DiceModel, DieType>(
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -31,18 +31,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowArgumentNullException_WhenModelIsNull()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentNullException_WhenModelIsNull()
    {
       // Arrange.
       DiceModel model = null!;
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -56,15 +56,15 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowArgumentNullException_WhenControlIsNull()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentNullException_WhenControlIsNull()
    {
       // Arrange.
       var model = new DiceModel();
-      ComboBox control = null!;
+      ListBox control = null!;
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -78,18 +78,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowArgumentNullException_WhenBoundPropertyNameIsNull()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentNullException_WhenBoundPropertyNameIsNull()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       String boundPropertyName = null!;
       var itemsPropertyName = nameof(model.DieTypes);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -105,17 +105,17 @@ public class DropDownListViewControllerTests
    [Theory]
    [InlineData("")]
    [InlineData("\t")]
-   public void DropDownListViewController_Constructor_ShouldThrowArgumentException_WhenBoundPropertyNameIsEmpty(String boundPropertyName)
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentException_WhenBoundPropertyNameIsEmpty(String boundPropertyName)
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var itemsPropertyName = nameof(model.DieTypes);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -129,18 +129,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowInvalidOperationException_WhenBoundPropertyNameDoesNotExist()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowInvalidOperationException_WhenBoundPropertyNameDoesNotExist()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = "RandomPropertyName";
       var itemsPropertyName = nameof(model.DieTypes);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -153,18 +153,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyNameIsNull()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyNameIsNull()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       String itemsPropertyName = null!;
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -179,17 +179,17 @@ public class DropDownListViewControllerTests
    [Theory]
    [InlineData("")]
    [InlineData("\t")]
-   public void DropDownListViewController_Constructor_ShouldThrowArgumentException_WhenItemsPropertyNameIsEmpty(String itemsPropertyName)
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentException_WhenItemsPropertyNameIsEmpty(String itemsPropertyName)
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -203,18 +203,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyNameDoesNotExist()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyNameDoesNotExist()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = "RandomPropertyName";
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -227,18 +227,18 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyIsInvalidType()
+   public void SingleSelectListBoxViewController_Constructor_ShouldThrowInvalidOperationException_WhenItemsPropertyIsInvalidType()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.Colors);
 
-      var act = () => _ = new DropDownListViewController<DiceModel, DieType>(
+      var act = () => _ = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -257,17 +257,17 @@ public class DropDownListViewControllerTests
    // ==========================================================================
 
    [Fact]
-   public void DropDownListViewController_Binding_ShouldUpdateControl_WhenModelBoundPropertyChanges()
+   public void SingleSelectListBoxViewController_Binding_ShouldUpdateControl_WhenModelBoundPropertyChanges()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
-      var sut = new DropDownListViewController<DiceModel, DieType>(
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -281,17 +281,17 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Binding_ShouldUpdateModel_WhenControlSelectedIndexChanges()
+   public void SingleSelectListBoxViewController_Binding_ShouldUpdateModel_WhenControlSelectedIndexChanges()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
-      var sut = new DropDownListViewController<DiceModel, DieType>(
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,
@@ -305,17 +305,17 @@ public class DropDownListViewControllerTests
    }
 
    [Fact]
-   public void DropDownListViewController_Binding_ShouldUpdateControlSelectedIndex_WhenModelUpdatesAllProperties()
+   public void SingleSelectListBoxViewController_Binding_ShouldUpdateControlSelectedIndex_WhenModelUpdatesAllProperties()
    {
       // Arrange.
       var model = new DiceModel();
-      var control = new ComboBox()
+      var control = new ListBox()
       {
-         DropDownStyle = ComboBoxStyle.DropDownList,
+         SelectionMode = SelectionMode.One,
       };
       var boundPropertyName = nameof(model.SelectedDieType);
       var itemsPropertyName = nameof(model.DieTypes);
-      var sut = new DropDownListViewController<DiceModel, DieType>(
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
          model,
          control,
          boundPropertyName,

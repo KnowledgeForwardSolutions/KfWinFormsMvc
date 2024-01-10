@@ -38,9 +38,7 @@ public class CheckBoxViewController<M> : PropertyBinding<M, CheckBox>
       String boundPropertyName) : base(model, control, boundPropertyName)
       => _control.CheckedChanged += Control_CheckedChanged;
 
-   /// <summary>
-   ///   Update the control when the model property changes.
-   /// </summary>
+   /// <inheritdoc/>
    public override void ApplyModelBoundPropertyChange()
    {
       var value = (Boolean?)_boundPropertyInfo.GetValue(_model);

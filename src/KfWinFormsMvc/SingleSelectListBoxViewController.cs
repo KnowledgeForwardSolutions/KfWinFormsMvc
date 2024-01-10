@@ -3,8 +3,8 @@
 namespace KfWinFormsMvc;
 
 /// <summary>
-///   View/controller for a simple drop-down list. Binds a model list property
-///   to a ComboBox items collection and model property to the ComboBox 
+///   View/controller for a single-select list. Binds a model list property
+///   to a ListBox items collection and model property to the ListBox 
 ///   SelectedIndex.
 /// </summary>
 /// <typeparam name="M">
@@ -13,27 +13,28 @@ namespace KfWinFormsMvc;
 /// <typeparam name="V">
 ///   The type of the items bound to the control's item collection.
 /// </typeparam>
-public class DropDownListViewController<M, V> : PropertyBinding<M, ComboBox>
+public class SingleSelectListBoxViewController<M, V> : PropertyBinding<M, ListBox>
    where M : INotifyPropertyChanged
 {
    private readonly PropertyInfo? _itemsPropertyInfo;
    private readonly List<V> _items = [];
 
    /// <summary>
-   ///   Initialize a new <see cref="DropDownListViewController{M, V}"/> object.
+   ///   Initialize a new <see cref="SingleSelectListBoxViewController{M, V}"/> 
+   ///   object.
    /// </summary>
    /// <param name="model">
    ///   The model containing the property to bind.
    /// </param>
    /// <param name="control">
-   ///   The <see cref="ComboBox"/> to bind to the model property.
+   ///   The <see cref="ListBox"/> to bind to the model property.
    /// </param>
    /// <param name="boundPropertyName">
-   ///   The name of the model property to bind to the <see cref="ComboBox"/>.
+   ///   The name of the model property to bind to the <see cref="ListBox"/>.
    /// </param>
    /// <param name="itemsPropertyName">
    ///   Optional. The name of the model property to bind to the 
-   ///   <see cref="ComboBox"/>'s items collection. If <see langword="null"/>
+   ///   <see cref="ListBox"/>'s items collection. If <see langword="null"/>
    ///   then a fixed set of values must by supplied by the 
    ///   <see cref="GetItemDisplayValue(V)"/> method.
    /// </param>
@@ -54,9 +55,9 @@ public class DropDownListViewController<M, V> : PropertyBinding<M, ComboBox>
    /// <exception cref="InvalidOperationException">
    ///   The model items property type is not <see cref="IEnumerable{V}"/>.
    /// </exception>
-   public DropDownListViewController(
+   public SingleSelectListBoxViewController(
       M model,
-      ComboBox control,
+      ListBox control,
       String boundPropertyName,
       String? itemsPropertyName = null)
       : base(model, control, boundPropertyName)
