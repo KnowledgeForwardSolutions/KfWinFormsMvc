@@ -132,6 +132,9 @@
   <data name="InvalidItemsPropertyType" xml:space="preserve">
     <value>Items property must implement IEnumerable&lt;T&gt;, where T is the item type</value>
   </data>
+  <data name="InvalidSelectedItemsPropertyType" xml:space="preserve">
+    <value>Model selected items propeorty must implement IEnumerable&lt;T&gt;, where T is the item type</value>
+  </data>
   <data name="ItemsPropertyIsNotDefined" xml:space="preserve">
     <value>Model items property is not defined</value>
   </data>

@@ -9,6 +9,8 @@ public partial class MainForm : Form
    private readonly NumberOfSidesView _numberOfSidesView;
    private readonly ColorSelectionViewController _colorSelectionViewController;
    private readonly RgbView _rgbView;
+   private readonly AvailableMaterialsViewController _availableMaterialsViewController;
+   private readonly SelectedMaterialsView _selectedMaterialsView;
    private readonly ClickController<DiceModel> _d6Controller;
    private readonly ClickController<DiceModel> _clearAllController;
 
@@ -26,6 +28,8 @@ public partial class MainForm : Form
       _numberOfSidesView = new NumberOfSidesView(_model, _numSidesDisplayLabel);
       _colorSelectionViewController = new(_model, _colorsListBox);
       _rgbView = new RgbView(_model, _rgbDisplayLabel);
+      _availableMaterialsViewController = new(_model, _materialsListBox);
+      _selectedMaterialsView = new(_model, _selectedMaterialsDisplayLabel);
       _d6Controller = new(
          _model,
          _d6Button,
@@ -36,10 +40,5 @@ public partial class MainForm : Form
          nameof(_model.ClearAll));
 
       _model.ClearAll();
-   }
-
-   private void _clearAllButton_Click(object sender, EventArgs e)
-   {
-
    }
 }

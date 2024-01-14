@@ -28,6 +28,8 @@ partial class MainForm
    /// </summary>
    private void InitializeComponent()
    {
+      components = new System.ComponentModel.Container();
+      System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
       _dieTypeComboBox = new ComboBox();
       _dieTypeLabel = new Label();
       _numSidesLabel = new Label();
@@ -38,6 +40,22 @@ partial class MainForm
       _colorLabel = new Label();
       _rgbLabel = new Label();
       _rgbDisplayLabel = new Label();
+      _materialsListBox = new ListBox();
+      _materialsLabel = new Label();
+      _selectedMaterialsDisplayLabel = new Label();
+      _selectedMaterialsLabel = new Label();
+      _detailsPanel = new Panel();
+      label5 = new Label();
+      label4 = new Label();
+      label3 = new Label();
+      label1 = new Label();
+      label2 = new Label();
+      _details1Label = new Label();
+      _detailsLabel = new Label();
+      imageList1 = new ImageList(components);
+      label6 = new Label();
+      label7 = new Label();
+      _detailsPanel.SuspendLayout();
       SuspendLayout();
       // 
       // _dieTypeComboBox
@@ -81,7 +99,7 @@ partial class MainForm
       // 
       // _d6Button
       // 
-      _d6Button.Location = new Point(99, 436);
+      _d6Button.Location = new Point(99, 641);
       _d6Button.Name = "_d6Button";
       _d6Button.Size = new Size(100, 40);
       _d6Button.TabIndex = 7;
@@ -90,13 +108,12 @@ partial class MainForm
       // 
       // _clearAllButton
       // 
-      _clearAllButton.Location = new Point(99, 499);
+      _clearAllButton.Location = new Point(99, 709);
       _clearAllButton.Name = "_clearAllButton";
       _clearAllButton.Size = new Size(100, 40);
       _clearAllButton.TabIndex = 8;
       _clearAllButton.Text = "Clear All";
       _clearAllButton.UseVisualStyleBackColor = true;
-      _clearAllButton.Click += _clearAllButton_Click;
       // 
       // _colorsListBox
       // 
@@ -135,11 +152,151 @@ partial class MainForm
       _rgbDisplayLabel.Text = "label1";
       _rgbDisplayLabel.TextAlign = ContentAlignment.MiddleLeft;
       // 
+      // _materialsListBox
+      // 
+      _materialsListBox.FormattingEnabled = true;
+      _materialsListBox.ItemHeight = 21;
+      _materialsListBox.Location = new Point(99, 313);
+      _materialsListBox.Name = "_materialsListBox";
+      _materialsListBox.SelectionMode = SelectionMode.MultiExtended;
+      _materialsListBox.Size = new Size(168, 235);
+      _materialsListBox.TabIndex = 13;
+      // 
+      // _materialsLabel
+      // 
+      _materialsLabel.Location = new Point(16, 313);
+      _materialsLabel.Name = "_materialsLabel";
+      _materialsLabel.Size = new Size(77, 45);
+      _materialsLabel.TabIndex = 14;
+      _materialsLabel.Text = "Available Materials:";
+      // 
+      // _selectedMaterialsDisplayLabel
+      // 
+      _selectedMaterialsDisplayLabel.BorderStyle = BorderStyle.FixedSingle;
+      _selectedMaterialsDisplayLabel.Location = new Point(99, 564);
+      _selectedMaterialsDisplayLabel.Name = "_selectedMaterialsDisplayLabel";
+      _selectedMaterialsDisplayLabel.Size = new Size(168, 58);
+      _selectedMaterialsDisplayLabel.TabIndex = 15;
+      _selectedMaterialsDisplayLabel.Text = "label1";
+      // 
+      // _selectedMaterialsLabel
+      // 
+      _selectedMaterialsLabel.AutoSize = true;
+      _selectedMaterialsLabel.Location = new Point(16, 568);
+      _selectedMaterialsLabel.Name = "_selectedMaterialsLabel";
+      _selectedMaterialsLabel.Size = new Size(77, 21);
+      _selectedMaterialsLabel.TabIndex = 16;
+      _selectedMaterialsLabel.Text = "Materials:";
+      // 
+      // _detailsPanel
+      // 
+      _detailsPanel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+      _detailsPanel.Controls.Add(label7);
+      _detailsPanel.Controls.Add(label6);
+      _detailsPanel.Controls.Add(label5);
+      _detailsPanel.Controls.Add(label4);
+      _detailsPanel.Controls.Add(label3);
+      _detailsPanel.Controls.Add(label1);
+      _detailsPanel.Controls.Add(label2);
+      _detailsPanel.Controls.Add(_details1Label);
+      _detailsPanel.Controls.Add(_detailsLabel);
+      _detailsPanel.Location = new Point(302, 11);
+      _detailsPanel.Name = "_detailsPanel";
+      _detailsPanel.Size = new Size(870, 670);
+      _detailsPanel.TabIndex = 17;
+      // 
+      // label5
+      // 
+      label5.Location = new Point(3, 346);
+      label5.Name = "label5";
+      label5.Size = new Size(864, 45);
+      label5.TabIndex = 13;
+      label5.Text = "Materials - Custom view binding Label to model SelectedMaterials property with overridden handler to display concatonated list of material names\r\n\r\n";
+      // 
+      // label4
+      // 
+      label4.Location = new Point(3, 264);
+      label4.Name = "label4";
+      label4.Size = new Size(864, 66);
+      label4.TabIndex = 12;
+      label4.Text = resources.GetString("label4.Text");
+      // 
+      // label3
+      // 
+      label3.Location = new Point(3, 203);
+      label3.Name = "label3";
+      label3.Size = new Size(864, 45);
+      label3.TabIndex = 11;
+      label3.Text = "R,G,B- Custom view binding Label to model SelectedColor property with overridden handler to display the R,G,B values for the selected color\r\n\r\n";
+      // 
+      // label1
+      // 
+      label1.Location = new Point(3, 142);
+      label1.Name = "label1";
+      label1.Size = new Size(864, 45);
+      label1.TabIndex = 10;
+      label1.Text = "Colors - custom view/controller derived from SingleSelectListBoxViewController that binds ListBox to model SelectedColor property. Overrides GetItems method to provide fixed list of colors\r\n\r\n";
+      // 
+      // label2
+      // 
+      label2.Location = new Point(3, 81);
+      label2.Name = "label2";
+      label2.Size = new Size(864, 45);
+      label2.TabIndex = 9;
+      label2.Text = "# of Sides - Custom view binding Label to model SelectedDieType property with overridden handler to display the number of sides for the selected die type\r\n\r\n";
+      // 
+      // _details1Label
+      // 
+      _details1Label.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      _details1Label.Location = new Point(3, 40);
+      _details1Label.Name = "_details1Label";
+      _details1Label.Size = new Size(864, 25);
+      _details1Label.TabIndex = 2;
+      _details1Label.Text = "DieType - DropDownListViewController binding ComboBox to model DieTypes property and SelectedDieType propeorty\r\n";
+      // 
+      // _detailsLabel
+      // 
+      _detailsLabel.AutoSize = true;
+      _detailsLabel.Location = new Point(3, 3);
+      _detailsLabel.Name = "_detailsLabel";
+      _detailsLabel.Size = new Size(60, 21);
+      _detailsLabel.TabIndex = 1;
+      _detailsLabel.Text = "Details:";
+      // 
+      // imageList1
+      // 
+      imageList1.ColorDepth = ColorDepth.Depth32Bit;
+      imageList1.ImageSize = new Size(16, 16);
+      imageList1.TransparentColor = Color.Transparent;
+      // 
+      // label6
+      // 
+      label6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      label6.Location = new Point(3, 407);
+      label6.Name = "label6";
+      label6.Size = new Size(864, 25);
+      label6.TabIndex = 18;
+      label6.Text = "D6 - ClickController that binds Button Click event to model D6 method";
+      // 
+      // label7
+      // 
+      label7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+      label7.Location = new Point(3, 448);
+      label7.Name = "label7";
+      label7.Size = new Size(864, 25);
+      label7.TabIndex = 19;
+      label7.Text = "ClearAll - ClickController that binds Button Click event to model ClearAll method";
+      // 
       // MainForm
       // 
       AutoScaleDimensions = new SizeF(9F, 21F);
       AutoScaleMode = AutoScaleMode.Font;
-      ClientSize = new Size(784, 561);
+      ClientSize = new Size(1184, 761);
+      Controls.Add(_detailsPanel);
+      Controls.Add(_selectedMaterialsLabel);
+      Controls.Add(_selectedMaterialsDisplayLabel);
+      Controls.Add(_materialsLabel);
+      Controls.Add(_materialsListBox);
       Controls.Add(_rgbDisplayLabel);
       Controls.Add(_rgbLabel);
       Controls.Add(_colorLabel);
@@ -154,6 +311,8 @@ partial class MainForm
       Margin = new Padding(4);
       Name = "MainForm";
       Text = "KfWinFormsMvc Example03 - Lists";
+      _detailsPanel.ResumeLayout(false);
+      _detailsPanel.PerformLayout();
       ResumeLayout(false);
       PerformLayout();
    }
@@ -170,4 +329,19 @@ partial class MainForm
    private Label _colorLabel;
    private Label _rgbLabel;
    private Label _rgbDisplayLabel;
+   private ListBox _materialsListBox;
+   private Label _materialsLabel;
+   private Label _selectedMaterialsDisplayLabel;
+   private Label _selectedMaterialsLabel;
+   private Panel _detailsPanel;
+   private Label _detailsLabel;
+   private Label _details1Label;
+   private Label label2;
+   private Label label1;
+   private Label label3;
+   private Label label4;
+   private Label label5;
+   private Label label6;
+   private ImageList imageList1;
+   private Label label7;
 }

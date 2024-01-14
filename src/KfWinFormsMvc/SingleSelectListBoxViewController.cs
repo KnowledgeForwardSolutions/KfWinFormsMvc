@@ -77,13 +77,13 @@ public class SingleSelectListBoxViewController<M, V> : PropertyBinding<M, ListBo
          }
       }
 
-      ModelItemsPropertyChanged();
+      ApplyModelItemsPropertyChange();
 
       _control.SelectedIndexChanged += Control_SelectedIndexChanged;
 
       if (itemsPropertyName is not null)
       {
-         RegisterPropertyChangedAction(itemsPropertyName, ModelItemsPropertyChanged);
+         RegisterPropertyChangedAction(itemsPropertyName, ApplyModelItemsPropertyChange);
       }
    }
 
@@ -100,7 +100,9 @@ public class SingleSelectListBoxViewController<M, V> : PropertyBinding<M, ListBo
    /// <param name="item">
    ///   The item to include in the control's list.
    /// </param>
-   /// <returns></returns>
+   /// <returns>
+   ///   The display representation of the item.
+   /// </returns>
    public virtual String GetItemDisplayValue(V item) => item?.ToString() ?? String.Empty;
 
    /// <summary>
@@ -124,7 +126,11 @@ public class SingleSelectListBoxViewController<M, V> : PropertyBinding<M, ListBo
       _control.SelectedIndex = value is null ? -1 : _items.IndexOf((V)value);
    }
 
-   public virtual void ModelItemsPropertyChanged()
+   /// <summary>
+   ///   Update the control items collection when the model's items collection
+   ///   changes.
+   /// </summary>
+   public virtual void ApplyModelItemsPropertyChange()
    {
       _control.Items.Clear();
       _items.Clear();

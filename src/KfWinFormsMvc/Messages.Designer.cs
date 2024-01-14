@@ -106,6 +106,15 @@ namespace KfWinFormsMvc {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Model selected items propeorty must implement IEnumerable&lt;T&gt;, where T is the item type.
+        /// </summary>
+        internal static string InvalidSelectedItemsPropertyType {
+            get {
+                return ResourceManager.GetString("InvalidSelectedItemsPropertyType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Model items property is not defined.
         /// </summary>
         internal static string ItemsPropertyIsNotDefined {

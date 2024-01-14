@@ -40,7 +40,7 @@ public abstract class PropertyBinding<M, C> : BindingBase<M, C>
    {
       boundPropertyName.RequiresNotEmpty(Messages.EmptyPropertyNameMessage);
 
-      _boundPropertyInfo = model.GetPropertyInfo(boundPropertyName);
+      _boundPropertyInfo = _model.GetPropertyInfo(boundPropertyName);
       RegisterPropertyChangedAction(boundPropertyName, ApplyModelBoundPropertyChange);
    }
 

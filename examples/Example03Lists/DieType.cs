@@ -9,6 +9,7 @@ public enum DieType
    D20
 }
 
+#pragma warning disable CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
 public static class DieTypeExtensions
 {
    public static Int32 NumberOfSides(this DieType dieType)
@@ -21,7 +22,7 @@ public static class DieTypeExtensions
       DieType.D20 => 20,
    };
 
-   public static String Name(this DieType dieType)
+   public static String GetName(this DieType dieType)
    => dieType switch
    {
       DieType.D4 => "Tetrahedron",
@@ -30,4 +31,5 @@ public static class DieTypeExtensions
       DieType.D12 => "Dodecahedron",
       DieType.D20 => "Icosahedron",
    };
+#pragma warning restore CS8524 // The switch expression does not handle some values of its input type (it is not exhaustive) involving an unnamed enum value.
 }

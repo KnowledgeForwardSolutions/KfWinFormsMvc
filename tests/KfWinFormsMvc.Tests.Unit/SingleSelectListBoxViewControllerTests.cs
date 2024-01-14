@@ -31,6 +31,29 @@ public class SingleSelectListBoxViewControllerTests
    }
 
    [Fact]
+   public void SingleSelectListBoxViewController_Constructor_ShouldPopulateControlItems_WhenAllParametersAreValid()
+   {
+      // Arrange.
+      var model = new DiceModel();
+      var control = new ListBox()
+      {
+         SelectionMode = SelectionMode.One,
+      };
+      var boundPropertyName = nameof(model.SelectedDieType);
+      var itemsPropertyName = nameof(model.DieTypes);
+
+      // Act.
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
+         model,
+         control,
+         boundPropertyName,
+         itemsPropertyName);
+
+      // Assert.
+      control.Items.Count.Should().Be(model.DieTypes.Count);
+   }
+
+   [Fact]
    public void SingleSelectListBoxViewController_Constructor_ShouldThrowArgumentNullException_WhenModelIsNull()
    {
       // Arrange.
@@ -302,6 +325,31 @@ public class SingleSelectListBoxViewControllerTests
 
       // Assert.
       model.SelectedDieType.Should().Be(DieType.D6);
+   }
+
+   [Fact]
+   public void SingleSelectListBoxViewController_Binding_ShouldRefreshControlItems_WhenModelUpdatesAllProperties()
+   {
+      // Arrange.
+      var model = new DiceModel();
+      var control = new ListBox()
+      {
+         SelectionMode = SelectionMode.One,
+      };
+      var boundPropertyName = nameof(model.SelectedDieType);
+      var itemsPropertyName = nameof(model.DieTypes);
+      var sut = new SingleSelectListBoxViewController<DiceModel, DieType>(
+         model,
+         control,
+         boundPropertyName,
+         itemsPropertyName);
+      control.SelectedIndex = 1;
+
+      // Act.
+      model.ClearAll();
+
+      // Assert.
+      control.Items.Count.Should().Be(model.DieTypes.Count);
    }
 
    [Fact]
